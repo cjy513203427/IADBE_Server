@@ -1,0 +1,30 @@
+\begin{table}[h!]
+    \centering
+    \captionsetup{justification=raggedright}
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{l*{11}{c}}
+        \toprule
+         & Bagel & Cable Gland & Carrot & Cookie & Dowel & Foam & Peach & Potato & Rope & Tire & Average \\
+        \midrule
+        CFA & 8.52 & 53.97 & 19.61 & 7.91 & 46.15 & 86.94 & 78.81 & 56.77 & 92.07 & 0.00 & 45.08 \\
+        CFLOW & 91.43 & 69.35 & 73.48 & 67.06 & \textbf{98.82} & 68.56 & 70.39 & 55.73 & 94.79 & 74.16 & 76.38 \\
+        CSFLOW & 53.33 & 61.03 & 43.41 & 48.16 & 38.31 & 70.69 & 56.62 & 33.45 & 72.55 & 63.84 & 54.14 \\
+        DFKDE & 64.36 & 71.67 & 73.25 & 49.10 & 72.97 & 53.87 & 58.24 & 52.57 & 83.11 & 42.30 & 62.14 \\
+        DFM & 92.51 & 66.78 & 45.38 & 31.52 & 45.23 & 33.19 & 59.51 & 65.81 & 84.83 & 59.45 & 58.42 \\
+        DRAEM & 88.02 & 71.10 & 56.78 & 50.87 & 44.79 & 14.03 & 71.12 & 70.65 & 59.78 & 62.16 & 58.93 \\
+        DSR & 81.87 & 76.25 & 71.21 & 36.51 & 70.58 & 53.37 & 60.14 & 55.26 & 48.19 & 57.29 & 61.07 \\
+        FASTFLOW & 83.99 & 66.28 & 78.09 & 71.67 & 67.68 & 72.62 & 48.40 & 40.51 & 88.27 & 67.31 & 68.48 \\
+        FRE & 85.49 & 59.44 & 63.22 & 59.15 & 77.09 & 73.87 & 59.11 & 46.59 & 91.53 & 62.02 & 72.75 \\
+        GANomaly & 36.78 & 65.96 & 50.22 & 2.84 & 62.72 & 47.87 & 59.00 & 56.87 & 40.49 & 44.83 & 46.76 \\
+        PaDiM & \textbf{95.71} & 73.56 & 64.83 & 62.48 & 89.68 & 64.50 & 72.50 & 53.51 & 76.36 & 80.97 & 73.41 \\
+        PatchCore & 92.72 & 91.95 & 86.84 & 74.48 & 97.86 & 72.56 & 84.94 & 60.13 & 94.66 & 79.95 & 83.61 \\
+        RD & \textbf{96.18} & 90.75 & 91.44 & 66.40 & \textbf{99.33} & 83.56 & 84.43 & 68.38 & - & - & \textbf{95.06} \\
+        RKDE & 51.81 & 71.43 & 47.00 & 60.85 & 56.32 & 53.87 & 53.92 & 41.90 & 35.85 & 56.28 & 52.92 \\
+        STFPM & 91.74 & 84.35 & 64.20 & 49.38 & 82.66 & 73.44 & 68.65 & 52.52 & 93.98 & 51.13 & 71.21 \\
+        UFLOW & \textbf{95.40} & 88.40 & 84.34 & 51.28 & \textbf{96.89} & 62.44 & 60.49 & 57.02 & \textbf{96.24} & 60.92 & 75.34 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \caption{Image Level AUROC Scores for MVTec3D\cite{Bergmann_2022_mvtec3d} dataset categories - The table presents the area under the receiver operating characteristic curve (AUROC) scores for 15 different methods across 10 different categories from the MVTec3D dataset. Higher AUROC scores indicate superior performance in distinguishing between normal and anomalous images.}
+    \label{table:MVTec3D Image AUROC}
+\end{table}
