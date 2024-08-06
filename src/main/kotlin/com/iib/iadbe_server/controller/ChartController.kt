@@ -1,20 +1,27 @@
 package com.iib.iadbe_server.controller
 
+import com.iib.iadbe_server.model.BarData
 import com.iib.iadbe_server.model.PieData
+import com.iib.iadbe_server.service.ChartService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class ChartController {
+class ChartController(private val chartService: ChartService) {
 
     @GetMapping("/api/pie-data")
     fun getPieData(): List<PieData> {
         return listOf(
-            PieData(335, "Germany"),
-            PieData(310, "France"),
-            PieData(234, "Canada"),
-            PieData(135, "Russia"),
-            PieData(1548, "USA")
+            PieData(5354, "MVTec", 15),
+            PieData(5312, "MVTec3D", 10),
+            PieData(2830, "Btech", 3),
+            PieData(399, "Kolektor", 1),
+            PieData(10821, "visa", 12)
         )
+    }
+
+    @GetMapping("/api/bar-data")
+    fun getBarData(): List<BarData> {
+        return chartService.getBarDataFromCSV()
     }
 }
