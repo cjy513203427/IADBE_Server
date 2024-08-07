@@ -1,5 +1,8 @@
 package com.iib.iadbe_server
 
+import com.iib.iadbe_server.model.BtechBM
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.io.ClassPathResource
@@ -7,10 +10,10 @@ import java.io.File
 
 @SpringBootTest
 class tableProcessingTest {
-     @Test
+    @Test
     fun readFile() {
         // Load the LaTeX file from the classpath resources
-        val resource = ClassPathResource("rawtables/Btech_Image_AUROC.tex")
+        val resource = ClassPathResource("rawtables/MVTec3D_Image_AUROC.tex")
 
         // Read the file content as a string
         val fileContent = resource.file.readText()
@@ -38,4 +41,18 @@ class tableProcessingTest {
             println("Table content not found")
         }
     }
+
+    @Test
+    fun serialize() {
+        val btechBM = BtechBM("ModelX", 10.0, 20.0, 30.0, 20.0)
+
+        // Serialize to JSON
+        val jsonString = Json.encodeToString(btechBM)
+        println(jsonString) // {"model":"ModelX","01":10.0,"02":20.0,"03":30.0,"average":20.0}
+
+        // Deserialize from JSON
+        val decodedBtechBM = Json.decodeFromString<BtechBM>(jsonString)
+        println(decodedBtechBM) // BtechBM(model=ModelX, catogery01=10.0, catogery02=20.0, catogery03=30.0, average=20.0)
+    }
+
 }

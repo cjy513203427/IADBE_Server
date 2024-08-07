@@ -1,9 +1,11 @@
 package com.iib.iadbe_server.controller
 
 import com.iib.iadbe_server.model.BarData
+import com.iib.iadbe_server.model.BtechBM
 import com.iib.iadbe_server.model.LineData
 import com.iib.iadbe_server.model.PieData
 import com.iib.iadbe_server.service.ChartService
+import com.iib.iadbe_server.service.TableService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -30,4 +32,6 @@ class ChartController(private val chartService: ChartService) {
     fun getLineData(): Map<String, Any> {
         return chartService.getLineDataFromCSV()
     }
+
+
 }
