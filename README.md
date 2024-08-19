@@ -43,9 +43,9 @@ java -jar IADBE_Server-0.0.1-SNAPSHOT.jar
 
 ```bash
 # Build docker image
-docker build -t my-spring-boot-app .
+docker build -t iadbe_server .
 # Run docker container
-docker run -p 8080:8080 my-spring-boot-app
+docker run --rm -p 8080:8080 iadbe_server
 ```
 
 </details>
