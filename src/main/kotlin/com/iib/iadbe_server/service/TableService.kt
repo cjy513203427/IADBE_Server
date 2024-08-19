@@ -14,7 +14,9 @@ class TableService {
         val btechBMList = mutableListOf<BtechBM>()
 
         try {
-            val fileContent = resource.file.readText()
+            // Get the InputStream from the resource
+            val inputStream = resource.inputStream
+            val fileContent = inputStream.bufferedReader().use { it.readText() }
 
             // Find the start and end indices of the table within the LaTeX content
             val tableStart = fileContent.indexOf("\\begin{tabular}")
@@ -59,12 +61,15 @@ class TableService {
         return btechBMList
     }
 
+
     fun getMVTec3DBM(): List<MVTec3DBM> {
         val resource = ClassPathResource("rawtables/MVTec3D_Image_AUROC.tex")
         val mvtec3DBMList = mutableListOf<MVTec3DBM>()
 
         try {
-            val fileContent = resource.file.readText()
+            // Get the InputStream from the resource
+            val inputStream = resource.inputStream
+            val fileContent = inputStream.bufferedReader().use { it.readText() }
 
             // Find the start and end indices of the table within the LaTeX content
             val tableStart = fileContent.indexOf("\\begin{tabular}")
@@ -131,14 +136,14 @@ class TableService {
                                 )
                             )
                         } else {
-//                        println("Skipping entry with empty model name")
+                            // println("Skipping entry with empty model name")
                         }
                     } else {
                         println("Skipping malformed row at index $index: ${columns.joinToString(" | ")}")
                     }
                 }
 
-//            println("Total models parsed: ${mvtec3DBMList.size}")
+                // println("Total models parsed: ${mvtec3DBMList.size}")
             } else {
                 println("Table content not found")
             }
@@ -150,12 +155,15 @@ class TableService {
         return mvtec3DBMList
     }
 
+
     fun getMVTecBM(): List<MVTecBM> {
         val resource = ClassPathResource("rawtables/MVTec_Image_AUROC.tex")
         val mvtecBMList = mutableListOf<MVTecBM>()
 
         try {
-            val fileContent = resource.file.readText()
+            // Get InputStream from the resource
+            val inputStream = resource.inputStream
+            val fileContent = inputStream.bufferedReader().use { it.readText() }
 
             // Find the start and end of the table
             val tableStart = fileContent.indexOf("\\begin{tabular}")
@@ -233,7 +241,7 @@ class TableService {
                     }
                 }
 
-                //println("Total models parsed: ${mvtecBMList.size}")
+                // println("Total models parsed: ${mvtecBMList.size}")
             } else {
                 println("Table content not found")
             }
@@ -245,12 +253,15 @@ class TableService {
         return mvtecBMList
     }
 
+
     fun getVisABM(): List<VisABM> {
         val resource = ClassPathResource("rawtables/VisA_Image_AUROC.tex")
         val visABMList = mutableListOf<VisABM>()
 
         try {
-            val fileContent = resource.file.readText()
+            // Get InputStream from the resource
+            val inputStream = resource.inputStream
+            val fileContent = inputStream.bufferedReader().use { it.readText() }
 
             // Find the start and end of the table
             val tableStart = fileContent.indexOf("\\begin{tabular}")

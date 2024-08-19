@@ -45,7 +45,7 @@ java -jar IADBE_Server-0.0.1-SNAPSHOT.jar
 # Build docker image
 docker build -t iadbe_server .
 # Run docker container
-docker run --rm -p 8080:8080 iadbe_server
+docker run --rm --name iadbe_server -p 8080:8080 iadbe_server
 ```
 
 </details>
