@@ -13,13 +13,6 @@ git clone https://github.com/cjy513203427/IADBE_Server.git
 cd IADBE_Server/
 ```
 
-## Production
-You can run the pre-built JAR file directly:
-```bash
-cd jar/
-java -jar IADBE_Server-0.0.1-SNAPSHOT.jar
-```
-
 ## Development
 Our project is developed with IntelliJ IDEA. After cloning, you can run IadbeServerApplication.kt directly.
 
@@ -32,3 +25,28 @@ Again, if you're on Windows:
 ```bash
 gradlew.bat bootRun
 ```
+
+
+## Production
+<details>
+<summary>Run pre-built JAR</summary>
+You can run the pre-built JAR file directly:
+
+```bash
+cd jar/
+java -jar IADBE_Server-0.0.1-SNAPSHOT.jar
+```
+</details>
+
+<details>
+<summary>Docker</summary>
+
+```bash
+# Build docker image
+docker build -t my-spring-boot-app .
+# Run docker container
+docker run -p 8080:8080 my-spring-boot-app
+```
+
+</details>
+
