@@ -18,8 +18,14 @@ COPY src ./src
 # Use Gradle Wrapper to build the project
 RUN ./gradlew build --no-daemon
 
+# Debug step: List contents of build/libs
+RUN ls -l build/libs
+
 # Expose the default application port
 EXPOSE 8080
 
+# Set the working directory again before running the JAR
+WORKDIR /app/build/libs
+
 # Run the generated executable JAR file
-CMD ["java", "-jar", "build/libs/IADBE_Server-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "IADBE_Server-0.0.1-SNAPSHOT.jar"]
