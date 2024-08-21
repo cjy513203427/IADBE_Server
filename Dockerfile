@@ -9,8 +9,8 @@ COPY gradlew gradlew
 COPY gradle gradle
 COPY build.gradle.kts settings.gradle.kts ./
 
-# Grant execute permissions to the Gradle Wrapper script
-RUN chmod +x gradlew
+# Convert line endings to Unix format and grant execute permissions to the Gradle Wrapper script
+RUN dos2unix gradlew && chmod +x gradlew
 
 # Copy the entire project source code to the container
 COPY src ./src
