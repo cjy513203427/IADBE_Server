@@ -4,14 +4,22 @@ FROM openjdk:17-jdk-slim
 # Set the working directory
 WORKDIR /app
 
-# Copy the pre-built JAR file into the container
-COPY jar/IADBE_Server-0.0.1-SNAPSHOT.jar /app/IADBE_Server-0.0.1-SNAPSHOT.jar
+# Copy Gradle Wrapper scripts and necessary build files to the container
+COPY gradlew gradlew
+COPY gradle gradle
+COPY build.gradle.kts settings.gradle.kts ./
 
-# Set file permissions (read, write, execute for all)
-RUN chmod 777 /app/IADBE_Server-0.0.1-SNAPSHOT.jar
+# Grant execute permissions to the Gradle Wrapper script
+RUN chmod +x gradlew
+
+# Copy the entire project source code to the container
+COPY src ./src
+
+# Use Gradle Wrapper to build the project
+RUN ./gradlew build --no-daemon
 
 # Expose the default application port
 EXPOSE 8080
 
-# Run the JAR file
-CMD ["java", "-jar", "/app/IADBE_Server-0.0.1-SNAPSHOT.jar"]
+# Run the generated executable JAR file
+CMD ["java", "-jar", "build/libs/IADBE_Server-0.0.1-SNAPSHOT.jar"]
