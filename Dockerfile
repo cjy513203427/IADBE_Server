@@ -9,6 +9,9 @@ COPY gradlew gradlew
 COPY gradle gradle
 COPY build.gradle.kts settings.gradle.kts ./
 
+# Install dos2unix
+RUN apt-get update && apt-get install -y dos2unix
+
 # Convert line endings to Unix format and grant execute permissions to the Gradle Wrapper script
 RUN dos2unix gradlew && chmod +x gradlew
 
